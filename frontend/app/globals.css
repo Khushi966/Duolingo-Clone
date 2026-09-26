@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@500;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-nunito: 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-outfit: 'Outfit', system-ui, sans-serif;
+
+  /* Duolingo Bright Signature Colors */
+  --duo-green: #58CC02;
+  --duo-green-dark: #46A302;
+  --duo-green-light: #D7FFB8;
+
+  --duo-blue: #1CB0F6;
+  --duo-blue-dark: #1899D6;
+  --duo-blue-light: #DDF4FF;
+
+  --duo-red: #FF4B4B;
+  --duo-red-dark: #EA2B2B;
+  --duo-red-light: #FFDFE0;
+
+  --duo-orange: #FF9600;
+  --duo-orange-dark: #E07A00;
+  --duo-orange-light: #FFE8D0;
+
+  --duo-yellow: #FFC800;
+  --duo-yellow-dark: #E5A500;
+
+  --duo-purple: #CE82FF;
+  --duo-purple-dark: #A54CE6;
+
+  --duo-gray: #E5E5E5;
+  --duo-gray-dark: #AFAFAF;
+  --duo-gray-text: #777777;
+
+  --bg-page: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --border-color: #E5E5E5;
+  --text-main: #3C3C3C;
+  --text-muted: #777777;
+}
+
+.dark {
+  --bg-page: #131F24;
+  --bg-card: #1B272D;
+  --border-color: #2E383D;
+  --text-main: #E5E5E5;
+  --text-muted: #8F9CA2;
+  --duo-green-light: #1A3922;
+  --duo-blue-light: #143547;
+  --duo-red-light: #3D1C22;
+}
+
+body {
+  font-family: var(--font-nunito);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Chunky 3D Button Styles */
+.duo-button {
+  font-family: var(--font-nunito);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 1rem;
+  transition: transform 0.1s ease, filter 0.1s ease;
+  user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.duo-button:active:not(:disabled) {
+  transform: translateY(3px);
+}
+
+.duo-button-green {
+  background-color: #58CC02;
+  color: #FFFFFF;
+  border-bottom: 4px solid #46A302;
+}
+.duo-button-green:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+.duo-button-green:active:not(:disabled) {
+  border-bottom: 1px solid #46A302;
+}
+
+.duo-button-blue {
+  background-color: #1CB0F6;
+  color: #FFFFFF;
+  border-bottom: 4px solid #1899D6;
+}
+.duo-button-blue:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+.duo-button-blue:active:not(:disabled) {
+  border-bottom: 1px solid #1899D6;
+}
+
+.duo-button-red {
+  background-color: #FF4B4B;
+  color: #FFFFFF;
+  border-bottom: 4px solid #EA2B2B;
+}
+.duo-button-red:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+.duo-button-red:active:not(:disabled) {
+  border-bottom: 1px solid #EA2B2B;
+}
+
+.duo-button-white {
+  background-color: #FFFFFF;
+  color: #3C3C3C;
+  border: 2px solid #E5E5E5;
+  border-bottom: 4px solid #CECECE;
+}
+.duo-button-white:hover:not(:disabled) {
+  background-color: #F7F7F7;
+}
+.duo-button-white:active:not(:disabled) {
+  border-bottom: 2px solid #CECECE;
+}
+
+.duo-button-disabled {
+  background-color: #E5E5E5 !important;
+  color: #AFAFAF !important;
+  border-bottom: 4px solid #CECECE !important;
+  cursor: not-allowed !important;
+}
+
+.dark .duo-button-white {
+  background-color: #1B272D;
+  color: #E5E5E5;
+  border: 2px solid #2E383D;
+  border-bottom: 4px solid #202C33;
+}
+.dark .duo-button-white:hover:not(:disabled) {
+  background-color: #24333B;
+}
+
+.dark .duo-button-disabled {
+  background-color: #2E383D !important;
+  color: #6C7A82 !important;
+  border-bottom: 4px solid #202C33 !important;
+}
+
+/* Card Chunky 3D border */
+.duo-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-bottom: 4px solid var(--border-color);
+  border-radius: 1rem;
+}
+
+/* Winding Path SVG Line Animation */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.path-line-animated {
+  stroke-dasharray: 8 8;
+  animation: dash 3s linear infinite;
+}
+
+/* Wobble / Shake animation for incorrect answer */
+@keyframes duo-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.animate-duo-shake {
+  animation: duo-shake 0.4s ease-in-out;
+}
+
+/* Bounce Pop */
+@keyframes duo-pop {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.animate-duo-pop {
+  animation: duo-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Fade In for modals */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+/* Bounce for loading states */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+
+.animate-bounce {
+  animation: bounce 1.1s infinite;
+}
+
+/* Spin for loaders */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
