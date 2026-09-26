@@ -2,6 +2,13 @@
 
 A functional clone of the Duolingo web app, built as an SDE Fullstack placement assignment. Replicates Duolingo's core learning experience: skill tree progression, gamified lesson loop, hearts/XP/streak systems, and leaderboards.
 
+## Live Links
+
+- **Live App**: https://duolingo-clone-navy-alpha.vercel.app
+- **Backend API Docs**: https://duolingo-clone-64zd.onrender.com/docs
+- **GitHub Repository**: https://github.com/Khushi966/Duolingo-Clone
+> Note: The backend is hosted on Render's free tier, which may spin down after periods of inactivity. If the app seems slow to load data on first visit, the backend is waking up — this can take 30-60 seconds.
+
 ## Tech Stack
 
 - **Frontend**: Next.js (TypeScript)
